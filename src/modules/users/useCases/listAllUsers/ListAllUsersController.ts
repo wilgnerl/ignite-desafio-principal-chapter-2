@@ -9,12 +9,12 @@ class ListAllUsersController {
     // Complete aqui
     const { user_id } = request.headers;
     try {
-      const users = this.listAllUsersUseCase.execute({
+      const usersList = this.listAllUsersUseCase.execute({
         user_id: String(user_id),
       });
-      return response.json(users);
+      return response.status(200).json(usersList);
     } catch (erro) {
-      return response.status(400).send();
+      return response.status(400).json({ error: erro.message });
     }
   }
 }
