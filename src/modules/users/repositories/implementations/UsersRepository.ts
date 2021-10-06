@@ -46,8 +46,9 @@ class UsersRepository implements IUsersRepository {
 
   turnAdmin(receivedUser: User): User {
     // Complete aqui
-
-    const user = { ...receivedUser, admin: true, updated_at: new Date() };
+    const user = receivedUser;
+    user.admin = true;
+    user.updated_at = new Date();
 
     return user;
   }
